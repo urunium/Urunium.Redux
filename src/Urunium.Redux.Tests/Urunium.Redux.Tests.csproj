@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Example\ArithmeticReducerTests.cs" />
     <Compile Include="StoreDispatchTest.cs" />
     <Compile Include="StoreInitialStateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
