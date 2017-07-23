@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Compose\ISubTreeReducer.cs" />
     <Compile Include="Compose\ReducerComposer.cs" />
+    <Compile Include="Compose\SubTreeToFullTreeAdapter.cs" />
     <Compile Include="IReducerOfT.cs" />
     <Compile Include="IStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
