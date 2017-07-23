@@ -18,11 +18,23 @@ namespace Urunium.Redux.Compose
         /// Add a reducer.
         /// </summary>
         /// <param name="stateReducer"></param>
-        /// <returns></returns>
+        /// <returns>ReducerComposer for fluent-api.</returns>
         public ReducerComposer<TState> AddStateReducer(IReducer<TState> stateReducer)
         {
             _reducers.Add(stateReducer);
             return this;
+        }
+
+        /// <summary>
+        /// Add a reducer that works in part/property (sub-tree) of application's state.
+        /// </summary>
+        /// <typeparam name="TPart">Type of property in which sub-tree reducer works.</typeparam>
+        /// <param name="subTreeReducer">Instance of ISubTreeReducer</param>
+        /// <returns>ReducerComposer for fluent-api.</returns>
+        public ReducerComposer<TState> AddSubTreeReducer<TPart>(ISubTreeReducer<TState, TPart> subTreeReducer)
+        {
+            var stateReducer = new SubTreeToFullTreeAdapter<TState, TPart>(subTreeReducer);
+            return AddStateReducer(stateReducer);
         }
 
         /// <summary>
