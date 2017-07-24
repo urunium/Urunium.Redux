@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Example\ArithmeticReducerTests.cs" />
+    <Compile Include="Example\DivideByAction.cs" />
+    <Compile Include="Example\DivideByProperties.cs" />
     <Compile Include="ReducerComposerSubTreeReducerTest.cs" />
     <Compile Include="ReducerComposerTests.cs" />
     <Compile Include="StoreDispatchTest.cs" />
