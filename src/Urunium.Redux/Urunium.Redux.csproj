@@ -47,6 +47,8 @@
     <Compile Include="IStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoreOfT.cs" />
+    <Compile Include="Typed\IApply.cs" />
+    <Compile Include="Typed\TypedReducer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -55,6 +55,8 @@
     <Compile Include="Example\ArithmeticReducerTests.cs" />
     <Compile Include="Example\DivideByAction.cs" />
     <Compile Include="Example\DivideByProperties.cs" />
+    <Compile Include="Example\FunctionalTodoApproach.cs" />
+    <Compile Include="Example\TypedTodoMvc.cs" />
     <Compile Include="ReducerComposerSubTreeReducerTest.cs" />
     <Compile Include="ReducerComposerTests.cs" />
     <Compile Include="StoreDispatchTest.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubTreeToFullTreeAdapterTests.cs" />
     <Compile Include="TestHelpers\Tree.cs" />
+    <Compile Include="TypedReducerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
