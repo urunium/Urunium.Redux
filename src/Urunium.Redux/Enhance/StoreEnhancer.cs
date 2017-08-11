@@ -1,0 +1,87 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Urunium.Redux.Enhance
+{
+    /// <summary>
+    /// Gives ability to intercept and enhance store functionalities.
+    /// </summary>
+    /// <typeparam name="TState">Type of state.</typeparam>
+    public abstract class StoreEnhancer<TState> : IStore<TState>
+    {
+        private EventHandler<EventArgs> _stateChangedHandlers = new EventHandler<EventArgs>((o, e) => { });
+        protected IStore<TState> Store { get; }
+
+        public StoreEnhancer(IStore<TState> store)
+        {
+            Store = store;
+
+            // Since StateChanged of original store cannot be changed,
+            // It is advisable to not attach event handler directly to original store
+            store.StateChanged += _store_StateChanged;
+        }
+
+        /// <summary>
+        /// Enhanced State
+        /// </summary>
+        public TState State => OnState(() => Store.State);
+
+        /// <summary>
+        /// Get notified when state changes, with enhancements.
+        /// </summary>
+        public event EventHandler<EventArgs> StateChanged
+        {
+            add { _stateChangedHandlers += value; }
+            remove { _stateChangedHandlers -= value; }
+        }
+
+        /// <summary>
+        /// Dispatch action to reducers, with enhancements.
+        /// </summary>
+        /// <typeparam name="TAction"></typeparam>
+        /// <param name="action"></param>
+        public void Dispatch<TAction>(TAction action)
+        {
+            OnDispatch<TAction>(action, (actionParam) => Store.Dispatch(actionParam));
+        }
+
+        /// <summary>
+        /// Override this method to handle how state is returned.
+        /// </summary>
+        /// <param name="forward">Forward the call to original state.</param>
+        /// <returns>State with enhancements.</returns>
+        protected virtual TState OnState(Func<TState> forward)
+        {
+            return forward();
+        }
+
+        /// <summary>
+        /// Override this method to enhance dispatch.
+        /// </summary>
+        /// <typeparam name="TAction">Type of action</typeparam>
+        /// <param name="action">Instance of action that needs to be applied by reducers.</param>
+        /// <param name="forward">Forward call to original dispatch function.</param>
+        protected virtual void OnDispatch<TAction>(TAction action, Action<TAction> forward)
+        {
+            forward(action);
+        }
+
+        /// <summary>
+        /// Override this method to enhance StateChanged event handling.
+        /// E.g. Logging.
+        /// </summary>
+        /// <param name="forward">Forward calls to actual event handlers.</param>
+        protected virtual void OnStateChanged(EventHandler<EventArgs> forward)
+        {
+            forward(this, new EventArgs());
+        }
+
+        private void _store_StateChanged(object sender, EventArgs e)
+        {
+            OnStateChanged(_stateChangedHandlers);
+        }
+    }
+}
