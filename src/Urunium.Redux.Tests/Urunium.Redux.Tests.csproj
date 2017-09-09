@@ -56,6 +56,7 @@
     <Compile Include="Example\DivideByAction.cs" />
     <Compile Include="Example\DivideByProperties.cs" />
     <Compile Include="Example\FunctionalTodoApproach.cs" />
+    <Compile Include="Example\TodoEnhancerExample.cs" />
     <Compile Include="Example\TypedTodoMvc.cs" />
     <Compile Include="ReducerComposerSubTreeReducerTest.cs" />
     <Compile Include="ReducerComposerTests.cs" />
