@@ -10,10 +10,20 @@ namespace Urunium.Redux.Typed
 {
     public class TypedReducer<TState> : IReducer<TState>
     {
-        Func<TState, object, TState> _func;
+        Func<TState, object, TState> _applyFunction;
         public TypedReducer()
         {
-            var applyMethods = GetApplyMethods();
+            _applyFunction = GenerateApplyFunction();
+        }
+        
+        public TState Apply(TState previousState, object action)
+        {
+            return _applyFunction(previousState, action);
+        }
+
+
+        private Func<TState, object, TState> GenerateApplyFunction()
+        {
             // compile into:
             // (previousState, action) => 
             // { 
@@ -26,8 +36,9 @@ namespace Urunium.Redux.Typed
             // }
             ParameterExpression p1 = Expression.Parameter(typeof(TState), "previousState");
             ParameterExpression p2 = Expression.Parameter(typeof(object), "action");
-            List<Expression> blockStatements = new List<Expression>(applyMethods.Count + 1);
             LabelTarget returnTarget = Expression.Label(typeof(TState));
+            var applyMethods = GetApplyMethods();
+            List<Expression> blockStatements = new List<Expression>(applyMethods.Count + 1);
             foreach (var item in applyMethods)
             {
                 var methodInfo = item.FirstOrDefault();
@@ -47,12 +58,7 @@ namespace Urunium.Redux.Typed
             blockStatements.Add(Expression.Label(returnTarget, p1));
             var block = Expression.Block(blockStatements);
             var lamda = Expression.Lambda<Func<TState, object, TState>>(block, p1, p2);
-            _func = lamda.Compile();
-        }
-
-        public TState Apply(TState previousState, object action)
-        {
-            return _func(previousState, action);
+            return lamda.Compile();
         }
 
         private ILookup<Type, MethodInfo> GetApplyMethods()
