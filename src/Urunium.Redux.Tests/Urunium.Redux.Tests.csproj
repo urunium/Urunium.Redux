@@ -73,6 +73,7 @@
     <Compile Include="SubTreeToFullTreeAdapterTests.cs" />
     <Compile Include="TestHelpers\Tree.cs" />
     <Compile Include="TypedReducerTest.cs" />
+    <Compile Include="UndoableCounterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

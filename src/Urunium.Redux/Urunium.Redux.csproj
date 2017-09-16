@@ -61,6 +61,10 @@
     <Compile Include="StoreOfT.cs" />
     <Compile Include="Typed\IApply.cs" />
     <Compile Include="Typed\TypedReducer.cs" />
+    <Compile Include="Undoable\Redo.cs" />
+    <Compile Include="Undoable\Undo.cs" />
+    <Compile Include="Undoable\UndoableState.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
