@@ -47,6 +47,16 @@
     <Compile Include="Enhance\StoreExtension.cs" />
     <Compile Include="IReducerOfT.cs" />
     <Compile Include="IStore.cs" />
+    <Compile Include="Logic\AnyAction.cs" />
+    <Compile Include="Logic\ILogic.cs" />
+    <Compile Include="Logic\IMultiDispatcher.cs" />
+    <Compile Include="Logic\PoisonPill.cs" />
+    <Compile Include="Logic\PreProcessResult.cs" />
+    <Compile Include="Logic\LogicBase.cs" />
+    <Compile Include="Logic\LogicStoreExtension.cs" />
+    <Compile Include="Logic\MultiDispatcher.cs" />
+    <Compile Include="Logic\ValidationException.cs" />
+    <Compile Include="Logic\ValidationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoreOfT.cs" />
     <Compile Include="Typed\IApply.cs" />

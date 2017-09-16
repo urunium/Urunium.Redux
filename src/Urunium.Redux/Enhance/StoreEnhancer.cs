@@ -49,6 +49,29 @@ namespace Urunium.Redux.Enhance
         }
 
         /// <summary>
+        /// Locate a particular store enhancer, applied to current store.
+        /// Note: 
+        /// - Search is inwards, i.e while locating, traversal is done from 
+        /// outer most enhacer to inner-most store.
+        /// - This is implementation detail of IStore extension method : <seealso cref="StoreExtension.FindEnhancer{TEnhancer, TState}(IStore{TState})"/>
+        /// </summary>
+        /// <typeparam name="TEnhancer">Type of enhancer to find</typeparam>
+        /// <returns>Enhancer instance if found, or null.</returns>
+        public TEnhancer Find<TEnhancer>() where TEnhancer : StoreEnhancer<TState>
+        {
+            IStore<TState> store = this;
+            while (store is StoreEnhancer<TState> enhancer)
+            {
+                if (store is TEnhancer)
+                {
+                    return store as TEnhancer;
+                }
+                store = enhancer.Store;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Override this method to handle how state is returned.
         /// </summary>
         /// <param name="forward">Forward the call to original state.</param>

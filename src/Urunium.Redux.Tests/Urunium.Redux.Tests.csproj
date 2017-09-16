@@ -58,8 +58,14 @@
     <Compile Include="Example\FunctionalTodoApproach.cs" />
     <Compile Include="Example\TodoEnhancerExample.cs" />
     <Compile Include="Example\TypedTodoMvc.cs" />
+    <Compile Include="LogicBaseTest.cs" />
+    <Compile Include="LogicCancelationTest.cs" />
+    <Compile Include="MultiDispatcherTest.cs" />
     <Compile Include="ReducerComposerSubTreeReducerTest.cs" />
     <Compile Include="ReducerComposerTests.cs" />
+    <Compile Include="ReduxLogicChainingTests.cs" />
+    <Compile Include="ReduxLogicLongRunningProcessTests.cs" />
+    <Compile Include="ReduxLogicTests.cs" />
     <Compile Include="StoreDispatchTest.cs" />
     <Compile Include="StoreEnhancerTests.cs" />
     <Compile Include="StoreInitialStateTest.cs" />
