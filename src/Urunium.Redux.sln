@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urunium.Redux", "Urunium.Redux\Urunium.Redux.csproj", "{010BFF28-EBDF-46C7-977C-22C1712E2889}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urunium.Redux.Tests", "Urunium.Redux.Tests\Urunium.Redux.Tests.csproj", "{19B9068F-0DBF-4191-89F6-FA14B5FB7042}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UruniumWPFExample", "UruniumWPFExample\UruniumWPFExample.csproj", "{09250BB6-B21A-4F87-8F86-1567C627762F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,15 @@ Global
 		{19B9068F-0DBF-4191-89F6-FA14B5FB7042}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19B9068F-0DBF-4191-89F6-FA14B5FB7042}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19B9068F-0DBF-4191-89F6-FA14B5FB7042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09250BB6-B21A-4F87-8F86-1567C627762F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09250BB6-B21A-4F87-8F86-1567C627762F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09250BB6-B21A-4F87-8F86-1567C627762F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09250BB6-B21A-4F87-8F86-1567C627762F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {087BCDF9-093C-4ACB-8B3C-CC8EB5CC0EB1}
 	EndGlobalSection
 EndGlobal
