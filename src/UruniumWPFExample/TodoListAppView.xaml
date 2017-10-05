@@ -55,7 +55,7 @@
         <Grid Grid.Row="1"  
               Style="{StaticResource GridWhenTodoItemsArePresent}">
 
-            <ListView x:Name="Todos"
+            <ListView x:Name="SortedTodos"
                       BorderThickness="0" 
                       HorizontalAlignment="Stretch" 
                       ItemContainerStyle="{StaticResource TodosListItem}" 

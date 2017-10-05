@@ -91,6 +91,11 @@ namespace UruniumWPFExample
         public TodoItemViewModelCollection Todos { get; } = new TodoItemViewModelCollection();
 
         /// <summary>
+        /// List of todo items, sorted by Id.
+        /// </summary>
+        public System.ComponentModel.ICollectionView SortedTodos { get; }
+
+        /// <summary>
         /// Handle click on `Clear completed` button.
         /// </summary>
         public void OnClearCompletedClick() => DispatchClearCompleted?.Invoke();
@@ -124,5 +129,11 @@ namespace UruniumWPFExample
         /// Handle uncheck of toggle all check box.
         /// </summary>
         public void OnToggleAllUnchecked() => DispatchActivateAll?.Invoke();
+
+        public TodoListAppViewModel()
+        {
+            SortedTodos = System.Windows.Data.CollectionViewSource.GetDefaultView(Todos);
+            SortedTodos.SortDescriptions.Add(new System.ComponentModel.SortDescription("Id", System.ComponentModel.ListSortDirection.Ascending));
+        }
     }
 }
