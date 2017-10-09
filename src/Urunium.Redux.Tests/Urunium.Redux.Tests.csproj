@@ -58,6 +58,7 @@
     <Compile Include="Example\FunctionalTodoApproach.cs" />
     <Compile Include="Example\TodoEnhancerExample.cs" />
     <Compile Include="Example\TypedTodoMvc.cs" />
+    <Compile Include="IgnoreStaticPropertiesInState.cs" />
     <Compile Include="LogicBaseTest.cs" />
     <Compile Include="LogicCancelationTest.cs" />
     <Compile Include="MultiDispatcherTest.cs" />
@@ -79,13 +80,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Urunium.Redux\Urunium.Redux.csproj">
-      <Project>{010bff28-ebdf-46c7-977c-22c1712e2889}</Project>
-      <Name>Urunium.Redux</Name>
-    </ProjectReference>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+    <ProjectReference Include="..\Urunium.Redux\Urunium.Redux.csproj">
+      <Project>{94e24c2c-78ad-4943-82a9-a7543e1bfaf2}</Project>
+      <Name>Urunium.Redux</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

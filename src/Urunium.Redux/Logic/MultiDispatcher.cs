@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -99,10 +100,10 @@ namespace Urunium.Redux.Logic
                 Delegate finalDelegate = null;
 
                 //Even though the events are public, the FieldInfo associated with them is private
-                foreach (System.Reflection.FieldInfo field in theType.GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
+                foreach (System.Reflection.FieldInfo field in theType.GetTypeInfo().DeclaredFields)
                 {
                     //eventInfo will be null if this is a normal field and not an event.
-                    System.Reflection.EventInfo eventInfo = theType.GetEvent(field.Name);
+                    System.Reflection.EventInfo eventInfo = theType.GetTypeInfo().GetDeclaredEvent(field.Name);
                     if (eventInfo != null && field.Name == nameof(StateChanged))
                     {
                         MulticastDelegate multicastDelegate = field.GetValue(originalStore) as MulticastDelegate;
@@ -135,9 +136,9 @@ namespace Urunium.Redux.Logic
             {
                 Type theType = targetStore.GetType();
 
-                foreach (System.Reflection.FieldInfo field in theType.GetFields(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
+                foreach (System.Reflection.FieldInfo field in theType.GetTypeInfo().DeclaredFields)
                 {
-                    System.Reflection.EventInfo eventInfo = theType.GetEvent(field.Name);
+                    System.Reflection.EventInfo eventInfo = theType.GetTypeInfo().GetDeclaredEvent(field.Name);
                     if (eventInfo != null && field.Name == nameof(StateChanged))
                     {
                         MulticastDelegate multicastDelegate = sourceDelegate as MulticastDelegate;

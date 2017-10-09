@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,9 @@ namespace Urunium.Redux.Undoable
 
         public UndoableState(TState present, IReadOnlyList<TState> past, IReadOnlyList<TState> future)
         {
-            Past = past ?? new List<TState>().AsReadOnly();
+            Past = past ?? new ReadOnlyCollection<TState>(new List<TState>());
             Present = present;
-            Future = future ?? new List<TState>().AsReadOnly();
+            Future = future ?? new ReadOnlyCollection<TState>(new List<TState>());
         }
 
         public UndoableState(TState present)
@@ -48,7 +49,7 @@ namespace Urunium.Redux.Undoable
                         present = past.Last();
                         future.Add(previousState.Present);
                         past.RemoveAt(past.Count - 1);
-                        return new UndoableState<TState>(present, past.AsReadOnly(), future.AsReadOnly());
+                        return new UndoableState<TState>(present, new ReadOnlyCollection<TState>(past), new ReadOnlyCollection<TState>(future));
                     }
                     return previousState;
                 case Redo redoAction:
@@ -59,7 +60,7 @@ namespace Urunium.Redux.Undoable
                         present = future.Last();
                         past.Add(previousState.Present);
                         future.RemoveAt(future.Count - 1);
-                        return new UndoableState<TState>(present, past.AsReadOnly(), future.AsReadOnly());
+                        return new UndoableState<TState>(present, new ReadOnlyCollection<TState>(past), new ReadOnlyCollection<TState>(future));
                     }
                     return previousState;
                 default:
@@ -68,7 +69,7 @@ namespace Urunium.Redux.Undoable
                         List<TState> future = new List<TState>();
                         past.Add(previousState.Present);
                         present = _innerReducer.Apply(previousState.Present, action);
-                        return new UndoableState<TState>(present, past.AsReadOnly(), future.AsReadOnly());
+                        return new UndoableState<TState>(present, new ReadOnlyCollection<TState>(past), new ReadOnlyCollection<TState>(future));
                     }
             }
         }

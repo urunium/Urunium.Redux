@@ -60,7 +60,7 @@ namespace Urunium.Redux.Compose
 
         private void CompileSetterFunction(MemberInfo memberInfo)
         {
-            if (memberInfo is PropertyInfo propInfo && (propInfo.GetSetMethod()?.IsPublic).GetValueOrDefault() || memberInfo is FieldInfo fieldInfo && fieldInfo.IsPublic)
+            if (memberInfo is PropertyInfo propInfo && (propInfo.SetMethod?.IsPublic).GetValueOrDefault() || memberInfo is FieldInfo fieldInfo && fieldInfo.IsPublic)
             {
                 CompileSetterForMutableObject(memberInfo);
                 return;
@@ -114,14 +114,10 @@ namespace Urunium.Redux.Compose
             //  }
             // }
             // Note: comparision for property name and constructor argument name is case insensitive.
-            var constructors = typeof(TState).GetConstructors(BindingFlags.DeclaredOnly |
-                        BindingFlags.Public |
-                        BindingFlags.Instance);
+            var constructors = typeof(TState).GetTypeInfo().DeclaredConstructors.ToArray();
             if (constructors.Length > 0)
             {
-                var properties = typeof(TState).GetProperties(BindingFlags.DeclaredOnly |
-                            BindingFlags.Public |
-                            BindingFlags.Instance);
+                var properties = typeof(TState).GetRuntimeProperties();
                 ConstructorInfo immutableConstructorInfo = null;
                 Dictionary<string, ParameterInfo> constructorParameters = null;
                 List<Expression> parameterExpressions = new List<Expression>();
@@ -136,6 +132,11 @@ namespace Urunium.Redux.Compose
 
                     foreach (var property in properties)
                     {
+                        if(property.GetMethod.IsStatic)
+                        {
+                            continue;
+                        }
+
                         if (!(constructorParameters.TryGetValue(property.Name.ToLower(), out ParameterInfo pinfo) && pinfo.ParameterType == property.PropertyType))
                         {
                             immutableConstructorInfo = null;
@@ -144,7 +145,7 @@ namespace Urunium.Redux.Compose
                         }
                         else
                         {
-                            if (string.Compare(pinfo.Name, memberInfo.Name, true) == 0 && pinfo.ParameterType == typeof(TPart))
+                            if (string.Compare(pinfo.Name, memberInfo.Name, StringComparison.CurrentCultureIgnoreCase) == 0 && pinfo.ParameterType == typeof(TPart))
                             {
                                 parameterExpressions.Add(valueExp);
                                 continue;
