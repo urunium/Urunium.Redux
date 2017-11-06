@@ -7,6 +7,14 @@
     <Version>0.0.1</Version>
     <AssemblyVersion>0.0.1.0</AssemblyVersion>
     <FileVersion>0.0.1.0</FileVersion>
+    <Description>Redux implementation in c#. Redux is a predictable state container made popular by http://redux.js.org/ in the js world. Urunium.Redux is redux implementation for .net framework, which tries to implement redux in more c# idiomatic manner. Prior arts: Redux.Net, reducto.</Description>
+    <Copyright>nripendra</Copyright>
+    <PackageLicenseUrl>https://github.com/urunium/Urunium.Redux/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/urunium/Urunium.Redux</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/urunium/Urunium.Redux</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageTags>.net core, c#, redux, state, reducer, store, dispatch</PackageTags>
+    <PackageReleaseNotes>0.0.1 - Initial release contains: Redux core implementation, Subtree reduction, Enhancers, Logic</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
