@@ -160,10 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Urunium.Redux\Urunium.Redux.csproj">
-      <Project>{010bff28-ebdf-46c7-977c-22c1712e2889}</Project>
+      <Project>{94e24c2c-78ad-4943-82a9-a7543e1bfaf2}</Project>
       <Name>Urunium.Redux</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

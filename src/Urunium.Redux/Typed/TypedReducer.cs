@@ -15,7 +15,7 @@ namespace Urunium.Redux.Typed
         {
             _applyFunction = GenerateApplyFunction();
         }
-        
+
         public TState Apply(TState previousState, object action)
         {
             return _applyFunction(previousState, action);
@@ -28,9 +28,9 @@ namespace Urunium.Redux.Typed
             // (previousState, action) => 
             // { 
             //      if(action is Add)
-            //          return Apply(previousState, action as Add); 
+            //          return Apply(previousState, (Add)action); 
             //      if(action is Subtract)
-            //          return Apply(previousState, action as Subtract); 
+            //          return Apply(previousState, (Subtract)action); 
             //   ...
             //      return previousState; 
             // }
@@ -49,7 +49,7 @@ namespace Urunium.Redux.Typed
                                     Expression.Constant(this),
                                     methodInfo,
                                     p1,
-                                    Expression.TypeAs(p2, actionType));
+                                    Expression.Convert(p2, actionType));
 
                 Expression returnExpr = Expression.Return(returnTarget, callAction);
 
@@ -63,10 +63,7 @@ namespace Urunium.Redux.Typed
 
         private ILookup<Type, MethodInfo> GetApplyMethods()
         {
-            var methods = this.GetType().GetMethods(
-                            BindingFlags.DeclaredOnly |
-                            BindingFlags.Public |
-                            BindingFlags.Instance);
+            var methods = this.GetType().GetTypeInfo().DeclaredMethods;
             return (from m in methods
                     let Params = m.GetParameters()
                     where

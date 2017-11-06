@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace Urunium.Redux.Enhance
             IStore<TState> finalStore = originalStore;
             foreach (var enhancerType in enhancerTypes)
             {
-                if (!typeof(StoreEnhancer<TState>).IsAssignableFrom(enhancerType))
+                if (!typeof(StoreEnhancer<TState>).GetTypeInfo().IsAssignableFrom(enhancerType.GetTypeInfo()))
                     throw new ArgumentException($"{enhancerType.FullName} must inherit from {typeof(StoreEnhancer<TState>).FullName}");
 
                 finalStore = (IStore<TState>)Activator.CreateInstance(enhancerType, finalStore);
