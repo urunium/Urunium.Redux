@@ -1,0 +1,63 @@
+//////////////////////////////////////////////////////////////////////
+// ARGUMENTS
+//////////////////////////////////////////////////////////////////////
+
+var target = Argument("target", "Default");
+var configuration = Argument("configuration", "Release");
+
+//////////////////////////////////////////////////////////////////////
+// PREPARATION
+//////////////////////////////////////////////////////////////////////
+
+// Define directories.
+var buildDir = Directory("./src/Urunium.Redux/bin") + Directory(configuration);
+var testBuildDir = Directory("./src/Urunium.Redux.Tests/bin") + Directory(configuration);
+
+//////////////////////////////////////////////////////////////////////
+// TASKS
+//////////////////////////////////////////////////////////////////////
+
+Task("Clean")
+    .Does(() =>
+{
+    CleanDirectory(buildDir);
+    CleanDirectory(testBuildDir);
+});
+
+Task("Restore-NuGet-Packages")
+    .IsDependentOn("Clean")
+    .Does(() =>
+{
+    DotNetCoreRestore("./src/Urunium.Redux.sln");
+});
+
+Task("Build")
+    .IsDependentOn("Restore-NuGet-Packages")
+    .Does(() =>
+{
+    var settings = new DotNetCoreBuildSettings
+    {
+        Configuration = configuration
+    };
+    DotNetCoreBuild("./src/Urunium.Redux.sln", settings);
+});
+
+Task("Run-Unit-Tests")
+    .IsDependentOn("Build")
+    .Does(() =>
+{
+    DotNetCoreTest("./src/Urunium.Redux.Tests/Urunium.Redux.Tests.csproj");
+});
+
+//////////////////////////////////////////////////////////////////////
+// TASK TARGETS
+//////////////////////////////////////////////////////////////////////
+
+Task("Default")
+    .IsDependentOn("Run-Unit-Tests");
+
+//////////////////////////////////////////////////////////////////////
+// EXECUTION
+//////////////////////////////////////////////////////////////////////
+
+RunTarget(target);
