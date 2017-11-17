@@ -6,6 +6,8 @@ Core redux implementation is feature complete. I'll be adding few bells and whis
 
 [![Build Status](https://travis-ci.org/urunium/Urunium.Redux.svg?branch=master)](https://travis-ci.org/urunium/Urunium.Redux)
 
+[![NuGet version](https://badge.fury.io/nu/Urunium.Redux.svg)](https://badge.fury.io/nu/Urunium.Redux)
+
 ## Getting Started
 To get started with urunium.redux install it from nuget.
 
