@@ -4,6 +4,8 @@ Redux is a predictable state container that first appeared in [JavaScript land](
 ## Satus
 Core redux implementation is feature complete. I'll be adding few bells and whistles to it for sure; but it is mostly usable.
 
+[![Build Status](https://travis-ci.org/urunium/Urunium.Redux.svg?branch=master)](https://travis-ci.org/urunium/Urunium.Redux)
+
 ## Getting Started
 To get started with urunium.redux install it from nuget.
 
