@@ -16,6 +16,8 @@ If you are not aware about basic redux concepts then it is highly recommended to
     <img src="./resources/redux.gif" alt="How Redux Works" title="How Redux Works" width="500" />
 </div>
 
+*Image credit: [simple-redux](https://bumbu.github.io/simple-redux/)*
+
 ## Satus
 Core redux implementation is feature complete. I'll be adding few bells and whistles to it for sure; but it is mostly usable.
 
