@@ -1,20 +1,7 @@
 # Urunium.Redux
-Redux is a predictable state container that first appeared in [JavaScript land](http://redux.js.org/). `Urunium.Redux` is an opinionated Redux implementation for .net core written in c#. The implementated is more geared towards being c# OOP oriented instead of functional oriented, while still adhering to Redux original principles. As such the programing models and APIs used would be more familier to a c# developer.
+[![Build Status](https://travis-ci.org/urunium/Urunium.Redux.svg?branch=master)](https://travis-ci.org/urunium/Urunium.Redux) [![NuGet version](https://badge.fury.io/nu/Urunium.Redux.svg)](https://badge.fury.io/nu/Urunium.Redux)
 
-## Satus
-Core redux implementation is feature complete. I'll be adding few bells and whistles to it for sure; but it is mostly usable.
-
-[![Build Status](https://travis-ci.org/urunium/Urunium.Redux.svg?branch=master)](https://travis-ci.org/urunium/Urunium.Redux)
-
-[![NuGet version](https://badge.fury.io/nu/Urunium.Redux.svg)](https://badge.fury.io/nu/Urunium.Redux)
-
-## Getting Started
-To get started with urunium.redux install it from nuget.
-
-```
-Install-Package urunium.redux
-```
-Once the urunium.redux library is installed, now you are ready to use it.
+Redux is a predictable state container that first appeared in [JavaScript land](http://redux.js.org/). `Urunium.Redux` is an opinionated Redux implementation for .net core written in c#. This implementation is more geared towards being c# OOP oriented instead of functional oriented, while still adhering to Redux core principles. As such the programing models and APIs used would be more familier to a c# developer.
 
 ### The Gist
 Redux is an implementation of Flux model which advocates one way data flow, to make application state highly predictable. Redux constitute of 4 basic components, namely:
@@ -24,6 +11,21 @@ Redux is an implementation of Flux model which advocates one way data flow, to m
 4. Store : Is the glue that holds all other components of Redux together. It holds the latest state, routes actions to reducers and notifies changes in state.
 
 If you are not aware about basic redux concepts then it is highly recommended to visit the [original documentation](https://redux.js.org/#the-gist).
+
+<div style="text-align:center">
+    <img src="./resources/redux.gif" alt="How Redux Works" title="How Redux Works" width="500" />
+</div>
+
+## Satus
+Core redux implementation is feature complete. I'll be adding few bells and whistles to it for sure; but it is mostly usable.
+
+## Getting Started
+To get started with urunium.redux install it from nuget.
+
+```
+Install-Package urunium.redux
+```
+Once the urunium.redux library is installed, now you are ready to use it.
 
 The counter shown in the original example can be written as:
 
@@ -242,6 +244,3 @@ Build project/solution from visual studio. Or in command line enter following co
 
 ## Testing
 Execute test in visual studio from "Test Explorer" window. Or in command line enter following command `dotnet test Urunium.Redux.Tests`
-
-
-
