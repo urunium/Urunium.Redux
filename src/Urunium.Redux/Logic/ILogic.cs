@@ -18,6 +18,9 @@ namespace Urunium.Redux.Logic
         uint Priority { get; }
     }
 
+    /// <summary>
+    /// Make logic cancelable.
+    /// </summary>
     public interface ICancelable
     {
         /// <summary>

@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 namespace Urunium.Redux.Logic
 {
     /// <summary>
-    /// Abstract base class for logics. Implementing <see cref="ILogic{TState, TAction}"/> works but
+    /// Abstract base class for logics. Implementing vanilla <see cref="ILogic{TState, TAction}"/> works but
     /// leaves more to be desired. LogicBase splits Preprocess into Transformation and Validation.
     /// Gives ability to replace any of Preprocess/Processing steps with custom implementation.
     /// </summary>
-    /// <typeparam name="TState"></typeparam>
-    /// <typeparam name="TAction"></typeparam>
+    /// <typeparam name="TState">Type of application's state.</typeparam>
+    /// <typeparam name="TAction">Type of action supported by this Logic. Use <see cref="AnyAction"/> if logic needs to
+    /// support "any action"
+    /// </typeparam>
     public abstract class LogicBase<TState, TAction> : ILogic<TState, TAction>
     {
         /// <summary>
@@ -31,8 +33,8 @@ namespace Urunium.Redux.Logic
         /// (i.e. don't wait for it to complete). Long running processes are given separate thread, through use of: 
         /// <see cref="TaskCreationOptions.LongRunning"/>. Implementor doesn't need to concern with running it in separate thread. 
         /// Note:
-        /// - <see cref="PreProcess(IStore{TState}, TAction)"/> cannot be long running.
-        /// - Only <see cref="Process(Func{TState}, TAction, IMultiDispatcher)"/> can be long running.
+        /// - <see cref="ILogic{TState, TAction}.PreProcess(IStore{TState}, TAction)"/> cannot be long running.
+        /// - Only <see cref="ILogic{TState, TAction}.Process(Func{TState}, TAction, IMultiDispatcher)"/> can be long running.
         /// </summary>
         public virtual bool IsLongRunning { get; } = false;
 

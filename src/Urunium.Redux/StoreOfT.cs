@@ -7,9 +7,48 @@ using System.Threading.Tasks;
 namespace Urunium.Redux
 {
     /// <summary>
-    /// Default implementation of store.
+    /// Default implementation of <see cref="IStore{TState}"/>.
     /// </summary>
     /// <typeparam name="TState">Type of State</typeparam>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    /// class IncrementAction { }
+    /// class DecrementAction { }
+    /// class Counter : IReducer<int>
+    /// {
+    ///     public int Apply(int previousState, object action)
+    ///     {
+    ///         switch (action)
+    ///         {
+    ///             case IncrementAction inc:
+    ///                 return previousState + 1;
+    ///             case DecrementAction dec:
+    ///                 return previousState - 1;
+    ///         }
+    ///         // Unsupported actions should return previousState unchanged.
+    ///         return previousState;
+    ///     }
+    /// }
+    /// // Using Reducer in store.
+    /// var rootReducer = new Counter();
+    /// var initialState = 0;
+    /// var store = new Store<int>(rootReducer, initialState);
+    /// store.StateChanged += (sender, eventArgs) => 
+    /// {
+    ///     // update ui
+    ///     Console.WriteLine(store.State);
+    /// };
+    ///     
+    /// store.Dispatch(new IncrementAction());
+    /// // 1
+    /// store.Dispatch(new IncrementAction());
+    /// // 2
+    /// store.Dispatch(new DecrementAction());
+    /// // 1
+    /// ]]>
+    /// </code>
+    /// </example>
     public class Store<TState> : IStore<TState>
     {
         private IReducer<TState> _reducer;

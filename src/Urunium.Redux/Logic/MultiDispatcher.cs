@@ -14,13 +14,13 @@ namespace Urunium.Redux.Logic
     /// <code>
     /// Example of how multi-dispatcher generally will be used.
     /// <![CDATA[
-    ///     using(var dispatcher = MultiDispatcher.Create(store))
-    ///     {
-    ///         dispatcher.DispatchImmediately("Long runing process has began");
-    ///         dispatcher.Dispatch("1");
-    ///         dispatcher.Dispatch("2");
-    ///         dispatcher.Dispatch("3");
-    ///     }
+    /// using(var dispatcher = MultiDispatcher.Create(store))
+    /// {
+    ///     dispatcher.DispatchImmediately("Long runing process has began");
+    ///     dispatcher.Dispatch("1");
+    ///     dispatcher.Dispatch("2");
+    ///     dispatcher.Dispatch("3");
+    /// }
     /// ]]>
     /// </code>
     /// </example>

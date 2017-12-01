@@ -33,7 +33,7 @@ namespace Urunium.Redux.Compose
             MemberInfo memberInfo = memberExpr.Member;
             CompileGetterFunction(propertySelector, memberExpr);
             CompileSetterFunction(memberInfo);
-            if(_setter is null)
+            if (_setter is null)
             {
                 throw new Exception("TState must provide an Immutable constructor, or public property setter");
             }
@@ -132,7 +132,7 @@ namespace Urunium.Redux.Compose
 
                     foreach (var property in properties)
                     {
-                        if(property.GetMethod.IsStatic)
+                        if (property.GetMethod.IsStatic)
                         {
                             continue;
                         }

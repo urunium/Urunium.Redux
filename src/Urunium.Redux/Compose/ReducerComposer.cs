@@ -46,7 +46,7 @@ namespace Urunium.Redux.Compose
         public TState Apply(TState previousState, object action)
         {
             var nextState = previousState;
-            foreach(var reducer in _reducers)
+            foreach (var reducer in _reducers)
             {
                 nextState = reducer.Apply(nextState, action);
             }

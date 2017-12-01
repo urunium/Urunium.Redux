@@ -17,4 +17,12 @@
     <PackageReleaseNotes>0.0.1 - Initial release contains: Redux core implementation, Subtree reduction, Enhancers, Logic</PackageReleaseNotes>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <DocumentationFile>bin\Debug\netstandard1.0\Urunium.Redux.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Docs\" />
+  </ItemGroup>
+
 </Project>

@@ -154,7 +154,7 @@ namespace Urunium.Redux.Tests
             store.Dispatch(new Redo());
             Assert.AreEqual(1, store.State.Present);
         }
-        
+
         public class Increment
         {
         }

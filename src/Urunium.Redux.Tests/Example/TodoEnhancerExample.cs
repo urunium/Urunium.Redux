@@ -56,7 +56,7 @@ namespace Urunium.Redux.Tests.Example
             // Since one of the item is marked completed.
             Assert.AreEqual(2, store.State.Todos.Count);
         }
-        
+
         class TodosReducer : TypedReducer<List<TodoItem>>,
             IApply<List<TodoItem>, AddTodo>,
             IApply<List<TodoItem>, ToggleTodo>,

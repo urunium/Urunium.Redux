@@ -8,14 +8,47 @@ using System.Threading.Tasks;
 
 namespace Urunium.Redux.Typed
 {
+    /// <summary>
+    /// A <see cref="TypedReducer{TState}"/> is essentially an <see cref="IReducer{TState}"/> whose Apply method forwards call to other Apply methods with correct signature.
+    /// The apply methods are strongly typed, hence provids ability to divide reducer functions by Action type.
+    /// </summary>
+    /// <typeparam name="TState">Type of State that needs to be reduced.</typeparam>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    /// // Root reducer.
+    /// public class Counter : Typed.TypedReducer<int>
+    /// {
+    ///    public int Apply(int previousState, Increment action)
+    ///    {
+    ///        return previousState + 1;
+    ///    }
+    ///    
+    ///    public int Apply(int previousState, Decrement action)
+    ///    {
+    ///        return previousState - 1;
+    ///    }
+    /// }
+    /// ]]>
+    /// </code>
+    /// </example>
     public class TypedReducer<TState> : IReducer<TState>
     {
         Func<TState, object, TState> _applyFunction;
+        /// <summary>
+        /// Instantiate new <see cref="TypedReducer{TState}"/>
+        /// </summary>
         public TypedReducer()
         {
             _applyFunction = GenerateApplyFunction();
         }
 
+        /// <summary>
+        /// Base Apply method from <see cref="IReducer{TState}"/>
+        /// </summary>
+        /// <param name="previousState"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
         public TState Apply(TState previousState, object action)
         {
             return _applyFunction(previousState, action);

@@ -22,7 +22,7 @@ namespace Urunium.Redux.Tests
             var anyActionLogicMock = new Moq.Mock<ILogic<AppState, ListenInternetConnection>>();
             anyActionLogicMock.SetupGet(x => x.IsLongRunning).Returns(true);
             anyActionLogicMock.Setup(x => x.PreProcess(It.IsAny<IStore<AppState>>(), It.IsAny<ListenInternetConnection>())).ReturnsAsync(new PreProcessResult(true, new ListenInternetConnection()));
-            anyActionLogicMock.Setup(x => x.Process(It.IsAny<Func<AppState>>(), It.IsAny<ListenInternetConnection>(), It.IsAny<IMultiDispatcher>())).Callback(() => 
+            anyActionLogicMock.Setup(x => x.Process(It.IsAny<Func<AppState>>(), It.IsAny<ListenInternetConnection>(), It.IsAny<IMultiDispatcher>())).Callback(() =>
             {
                 // Basically hangs if IsLongRunning is set to false.
                 Task.Delay(TimeSpan.MaxValue).Wait();

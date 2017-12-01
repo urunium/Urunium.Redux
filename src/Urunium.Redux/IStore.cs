@@ -8,9 +8,10 @@ namespace Urunium.Redux
 {
     /// <summary>
     /// Store is responsible for holding state. Dispatch action to reducer, 
-    /// and notify about change in state to subscribers.
+    /// and notify about change in state to subscribers. Default implementation 
+    /// for this interface is <see cref="Store{TState}"/>.
     /// </summary>
-    /// <typeparam name="TState"></typeparam>
+    /// <typeparam name="TState">Type of application's state.</typeparam>
     public interface IStore<TState>
     {
         /// <summary>

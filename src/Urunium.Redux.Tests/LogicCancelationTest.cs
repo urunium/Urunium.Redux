@@ -148,7 +148,7 @@ namespace Urunium.Redux.Tests
             Assert.True(logic.OnProcessExecuted);
 
             store.Dispatch(new PoisonPill("test"));
-            
+
             logic.OnProcessExecuted = false;
             var result = (logic as ILogic<AppState, TestAction>).Process(() => store.State, new TestAction(), null);
 
@@ -236,7 +236,7 @@ namespace Urunium.Redux.Tests
             public override Type CancelType => null;
 
             public override uint Priority => 0;
-            
+
             public bool OnProcessExecuted { get; private set; }
 
             protected override Task OnProcess(Func<AppState> getState, CancelTestAction action, IMultiDispatcher dispatcher, CancellationToken cancellationToken)

@@ -12,6 +12,29 @@ namespace Urunium.Redux
     /// and fast rule for action. Could even be primitive types.
     /// </summary>
     /// <typeparam name="TState">Type of state</typeparam>
+    /// <example>
+    /// <code>
+    /// <![CDATA[
+    /// class IncrementAction { }
+    /// class DecrementAction { }
+    /// class Counter : IReducer<int>
+    /// {
+    ///     public int Apply(int previousState, object action)
+    ///     {
+    ///         switch (action)
+    ///         {
+    ///             case IncrementAction inc:
+    ///                 return previousState + 1;
+    ///             case DecrementAction dec:
+    ///                 return previousState - 1;
+    ///         }
+    ///         // Unsupported actions should return previousState unchanged.
+    ///         return previousState;
+    ///     }
+    /// }
+    /// ]]>
+    /// </code>
+    /// </example>
     public interface IReducer<TState>
     {
         /// <summary>
