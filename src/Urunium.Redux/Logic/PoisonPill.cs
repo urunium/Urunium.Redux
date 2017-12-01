@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 namespace Urunium.Redux.Logic
 {
     /// <summary>
+    /// This action is meant to be used in conjunction with Logic, for a system which needs a way
+    /// to gracefully cancel everything things that are in progress.
     /// All logic must handle this Action type, and cancel it's process when received.
     /// Meaning all the logic currently running can be killed by dispatching PoisionPill at once.
-    /// This action is meant to be used in conjunction with Logic.
     /// </summary>
     public class PoisonPill
     {

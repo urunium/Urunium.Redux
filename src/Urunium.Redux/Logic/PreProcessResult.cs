@@ -22,7 +22,7 @@ namespace Urunium.Redux.Logic
         public object Action { get; }
 
         /// <summary>
-        /// Immutable Ctor.
+        /// Immutable constructor to instanciate new <see cref="PreProcessResult"/>.
         /// </summary>
         /// <param name="continueToNext"></param>
         /// <param name="action"></param>

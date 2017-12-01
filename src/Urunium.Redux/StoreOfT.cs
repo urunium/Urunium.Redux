@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 namespace Urunium.Redux
 {
     /// <summary>
-    /// Default implementation of <see cref="IStore{TState}"/>.
+    /// Default implementation of <see cref="IStore{TState}"/>. A store is generally a singleton global
+    /// object that holds entire state of the application. Store can be used to route actions to reducers,
+    /// to change the current state to new desired state using <see cref="Store{TState}.Dispatch{TAction}(TAction)"/> method, 
+    /// the change in state can be listened through <see cref="Store{TState}.StateChanged"/> event, and the
+    /// current state can be accessed through <see cref="Store{TState}.State"/> property. Note that only
+    /// way to modify state is through dispatching an action through store.
     /// </summary>
     /// <typeparam name="TState">Type of State</typeparam>
     /// <example>
@@ -67,8 +72,8 @@ namespace Urunium.Redux
         /// <summary>
         /// Store should take in the root reducer, and initial state.
         /// </summary>
-        /// <param name="rootReducer"></param>
-        /// <param name="initialState"></param>
+        /// <param name="rootReducer">The root reducer is responsible for distributing all the incomming actions to correct reducer.</param>
+        /// <param name="initialState">The initial state of application when store is constructed for first time.</param>
         public Store(IReducer<TState> rootReducer, TState initialState)
         {
             _reducer = rootReducer;
@@ -79,8 +84,11 @@ namespace Urunium.Redux
         /// Dispatch action to reducers which will then apply the actions.
         /// Also, notifies about state change by firing StageChanged event.
         /// </summary>
-        /// <typeparam name="TAction">Type of action</typeparam>
-        /// <param name="action">Action Object</param>
+        /// <typeparam name="TAction">Type of action that needs to be applied to current state.</typeparam>
+        /// <param name="action">
+        /// Instance of `Action` that needs to be applied to current state of Store. 
+        /// Applying an action may transform a state into new state.
+        /// </param>
         public void Dispatch<TAction>(TAction action)
         {
             var previousState = _state;
