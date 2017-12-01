@@ -69,7 +69,7 @@ namespace Urunium.Redux.Tests.Example
                 }
                 return previousState;
             }
-            
+
             List<TodoItem> TodoItems(List<TodoItem> previousState, object action)
             {
                 if (action is AddTodo addTodo)
@@ -98,7 +98,7 @@ namespace Urunium.Redux.Tests.Example
                 }).ToList();
             }
         }
-        
+
         // State:
         class Todo
         {

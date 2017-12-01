@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Urunium.Redux.Logic
 {
+    /// <summary>
     /// A scope under which `Dispatch` doesn't immediately fire state changed event. State is 
     /// changed silently and one state changed event is fired when scope gets disposed.
     /// </summary>

@@ -29,7 +29,7 @@ namespace Urunium.Redux.Logic
         /// <summary>
         /// Enhancer to enable business logic processing when actions are dispatched into store.
         /// </summary>
-        /// <typeparam name="TState"></typeparam>
+        /// <typeparam name="TState">Type of application's state.</typeparam>
         private class LogicEnhancer<TState> : Enhance.StoreEnhancer<TState>, ILogicConfiguration<TState>
         {
             List<object> _logics = new List<object>();
@@ -63,10 +63,10 @@ namespace Urunium.Redux.Logic
             protected override void OnDispatch<TAction>(TAction action, Action<TAction> forward)
             {
                 // Kill all processors if poision pill is received.
-                if(action is PoisonPill)
+                if (action is PoisonPill)
                 {
                     var allProcessors = (from x in _logics.OfType<ICancelable>() select x as ICancelable);
-                    foreach(var processor in allProcessors)
+                    foreach (var processor in allProcessors)
                     {
                         processor.Cancel(action);
                     }
@@ -118,7 +118,7 @@ namespace Urunium.Redux.Logic
                             await ExecuteProcessMethod(action, logicChain);
                         }
                     }
-                    catch(Exception e)
+                    catch (Exception e)
                     {
                         // Any exception that happens while processing this particular action will be dispatched. Another
                         // business logic may want to handle it. But may be there is a chance of never ending loop :D can't be too sure.

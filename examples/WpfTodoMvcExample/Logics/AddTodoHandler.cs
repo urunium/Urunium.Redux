@@ -22,7 +22,7 @@ namespace WpfTodoMvcExample.Logics
         /// Priority of this handler.
         /// </summary>
         public override uint Priority => 1;
-
+        
         /// <summary>
         /// Validate the AddTodo action being dispatched.
         /// </summary>

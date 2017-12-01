@@ -15,6 +15,9 @@ namespace Urunium.Redux.Compose
     /// <typeparam name="TPart">Type of property which this reducer will deal with.</typeparam>
     public interface ISubTreeReducer<TState, TPart> : IReducer<TPart>
     {
+        /// <summary>
+        /// Expression representing the property of TState class, that this subtree reducer deals with.
+        /// </summary>
         System.Linq.Expressions.Expression<Func<TState, TPart>> PropertySelector { get; }
     }
 }

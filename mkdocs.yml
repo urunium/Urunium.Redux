@@ -1,0 +1,4 @@
+site_name: 'Urunium.Redux API'
+docs_dir: './src/Urunium.Redux/Docs/'
+pages:
+    - 'api': 'index.md'

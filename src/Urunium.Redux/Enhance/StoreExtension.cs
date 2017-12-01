@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Urunium.Redux.Enhance
 {
+    /// <summary>
+    /// Extension methods for <see cref="IStore{TState}"/> to enhance store instances.
+    /// </summary>
     public static class StoreExtension
     {
         /// <summary>

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Urunium.Redux.Undoable
 {
+    /// <summary>
+    /// Action to "Undo" state, as in (Undo/redo).
+    /// </summary>
     public class Undo
     {
     }
