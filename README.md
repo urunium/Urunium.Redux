@@ -208,17 +208,18 @@ store.StateChanged += (sender, eventArgs) => {
 
 ### Where to go from here?
 
-[An example](https://github.com/urunium/Urunium.Redux/tree/master/examples/WpfTodoMvcExample) is availabe in the repository showing usage in TodoMVC app written in WPF. Includes all basic usage of redux along with [redux-logic](https://github.com/urunium/Urunium.Redux/tree/master/examples/WpfTodoMvcExample/Logics). [TodoMvcBootstrapper](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/Fx/TodoMvcBootstrapper.cs#L71) is the entry point from where you can start exploring code. It starts by displaying IShell interface implemented by [ShellViewModel](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/ShellViewModel.cs), it also contains code for [setting up redux](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/Fx/TodoMvcBootstrapper.cs#L43). [Connect](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/ShellViewModel.cs#L40) method is one of interesting method that binds [Redux state tree](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/States/TodoList.cs) of this TodoMVC app with viewmodel. In essense we are treating ViewModels to somewhat like `props` of react. But since WPF unlike react cannot contain logic in views, the ViewModels ends up being vessel for view's logics, hence somehow behaving somewhat like react's `component`ish too. XAMLs tends to be just the `render()` method without any code.
-
-<div style="text-align:center">
-    <img src="./resources/screenshot-todomvc.png" alt="TodoMVC with C#, WPF and Urunium.Redux" title="TodoMVC with c#, WPF and Urunium.Redux" width="500" />
-</div>
-
 #### Documentation
 Basic usage has been provided above. Few insight to implementation details is also given in the wiki page.
 Please visit the wiki https://github.com/urunium/Urunium.Redux/wiki.
 
 Find [API documentation](http://uruniumredux.readthedocs.io/en/latest/) here!
+
+#### Example application
+[An example](https://github.com/urunium/Urunium.Redux/tree/master/examples/WpfTodoMvcExample) is availabe in the repository showing usage in TodoMVC app written in WPF. Includes all basic usage of redux along with [redux-logic](https://github.com/urunium/Urunium.Redux/tree/master/examples/WpfTodoMvcExample/Logics). [TodoMvcBootstrapper](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/Fx/TodoMvcBootstrapper.cs#L71) is the entry point from where you can start exploring code. It starts by displaying IShell interface implemented by [ShellViewModel](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/ShellViewModel.cs), it also contains code for [setting up redux](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/Fx/TodoMvcBootstrapper.cs#L43). [Connect](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/ShellViewModel.cs#L40) method is one of interesting method that binds [Redux state tree](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/States/TodoList.cs) of this TodoMVC app with viewmodel. In essense we are treating ViewModels to somewhat like `props` of react. But since WPF unlike react cannot contain logic in views, the ViewModels ends up being vessel for view's logics, hence somehow behaving somewhat like react's `component`ish too. XAMLs tends to be just the `render()` method without any code.
+
+<div style="text-align:center">
+    <img src="./resources/screenshot-todomvc.png" alt="TodoMVC with C#, WPF and Urunium.Redux" title="TodoMVC with c#, WPF and Urunium.Redux" width="500" />
+</div>
 
 ## Prior Art
 Other alternatives are also available:
