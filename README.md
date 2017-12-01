@@ -214,6 +214,11 @@ store.StateChanged += (sender, eventArgs) => {
     <img src="./resources/screenshot-todomvc.png" alt="TodoMVC with C#, WPF and Urunium.Redux" title="TodoMVC with c#, WPF and Urunium.Redux" width="500" />
 </div>
 
+#### Documentation
+Basic usage has been provided above. Few insight to implementation details is also given in the wiki page.
+Please visit the wiki https://github.com/urunium/Urunium.Redux/wiki.
+
+Find [API documentation](http://uruniumredux.readthedocs.io/en/latest/) here!
 
 ## Prior Art
 Other alternatives are also available:
@@ -222,12 +227,6 @@ Other alternatives are also available:
 
 ### Why new implementation?
 Well, it's an learning opportunity for me. This implementation is more object-oriented and idiomatic C#, while existing implementations tends to be more functional. Reducto even tries stay close to javascript redux in terms of API. It is also more opinionated in the sense that it includes built in plugins similar to [redux-logic](https://github.com/jeffbski/redux-logic), [redux-undo](https://github.com/omnidan/redux-undo) etc.
-
-## Documentation
-Basic usage has been provided above. Few insight to implementation details is also given in the wiki page.
-Please visit the wiki https://github.com/urunium/Urunium.Redux/wiki.
-
-API documentation comming soon!
 
 ## License
 Urunium.Redux is provided under very flexible [MIT license](https://github.com/urunium/Urunium.Redux/blob/master/LICENSE).
