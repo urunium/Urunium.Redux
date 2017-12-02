@@ -1,10 +1,10 @@
-# Introducting Urunium.Redux an implimentation of Redux in `c#`
+# Introducing Urunium.Redux an implimentation of Redux in `c#`
 **[Urunium.Redux](https://github.com/urunium/Urunium.Redux)** is an implementation of [redux](https://github.com/reactjs/redux) in c#. 
 It is a [netstandard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)-[1.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard1.0.md) library, 
-hence can be used in multiple platforms with dotnet-core.
+hence can be used in multiple platforms with dotnet-core, mono etc. *Though only dotnet-core is tested.*
 
 ## Redux
-Redux is a predictable state container that first appeared in JavaScript land. Urunium.Redux is an opinionated Redux implementation for .net core 
+Redux is a predictable state container that first appeared in [JavaScript land](http://redux.js.org/). Urunium.Redux is an opinionated Redux implementation for .net core 
 written in c#. This implementation is more geared towards being c# OOP oriented instead of functional oriented, while still adhering to Redux core 
 principles. As such the programing models and APIs used would be more familier to a c# developer.
 
