@@ -23,7 +23,7 @@ Although there is a small issue with this image. Redux as a concept doesn't have
 
 ### Store
 Store in redux is a global singleton that holds the latest state of the application. Unlike original flux implementation redux proposes use of single
-object tree to represent whole of application's state instead of using multiple stores. In Urunium.Redux, store implements `IStore<TState>` interface,
+object tree to represent whole of application's state instead of using multiple stores. In Urunium.Redux, store implements [IStore&lt;TState&gt;](http://uruniumredux.readthedocs.io/en/latest/Urunium.Redux/#interface-uruniumreduxistoretstate) interface,
 where `TState` is the class representing state.
 
 ### State
