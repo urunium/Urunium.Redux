@@ -3,7 +3,7 @@
 
 Redux is a predictable state container that first appeared in [JavaScript land](http://redux.js.org/). `Urunium.Redux` is an opinionated Redux implementation for .net core written in c#. This implementation is more geared towards being c# OOP oriented instead of functional oriented, while still adhering to Redux core principles. As such the programing models and APIs used would be more familier to a c# developer.
 
-### The Gist
+## The Gist
 Redux is an implementation of Flux model which advocates one way data flow, to make application state highly predictable. Redux constitute of 4 basic components, namely:
 1. State : An object representing state of the application. The state stores mostly UI state, but can also contain few business logic related stuffs and other helpers/calculated state.
 2. Action : An object representing action that can be applied to state which changes the state.
@@ -17,9 +17,6 @@ If you are not aware about basic redux concepts then it is highly recommended to
 </div>
 
 *Image credit: [simple-redux](https://bumbu.github.io/simple-redux/)*
-
-## Satus
-Core redux implementation is feature complete. I'll be adding few bells and whistles to it for sure; but it is mostly usable.
 
 ## Getting Started
 To get started with urunium.redux install it from nuget.
@@ -206,15 +203,14 @@ store.StateChanged += (sender, eventArgs) => {
 };
 ```
 
-### Where to go from here?
+## Where to go from here?
 
-#### Documentation
-Basic usage has been provided above. Few insight to implementation details is also given in the wiki page.
-Please visit the wiki https://github.com/urunium/Urunium.Redux/wiki.
+### Documentation
+Basic usage has been provided above. Find [API documentation](http://uruniumredux.readthedocs.io/en/latest/) here, or [here](https://github.com/urunium/Urunium.Redux/blob/master/src/Urunium.Redux/Docs/index.md)!
 
-Find [API documentation](http://uruniumredux.readthedocs.io/en/latest/) here!
+Few insight to implementation details is also given in the wiki page. Please visit the wiki https://github.com/urunium/Urunium.Redux/wiki.
 
-#### Example application
+### Example application
 [An example](https://github.com/urunium/Urunium.Redux/tree/master/examples/WpfTodoMvcExample) is availabe in the repository showing usage in TodoMVC app written in WPF. Includes all basic usage of redux along with [redux-logic](https://github.com/urunium/Urunium.Redux/tree/master/examples/WpfTodoMvcExample/Logics). [TodoMvcBootstrapper](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/Fx/TodoMvcBootstrapper.cs#L71) is the entry point from where you can start exploring code. It starts by displaying IShell interface implemented by [ShellViewModel](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/ShellViewModel.cs), it also contains code for [setting up redux](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/Fx/TodoMvcBootstrapper.cs#L43). [Connect](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/ShellViewModel.cs#L40) method is one of interesting method that binds [Redux state tree](https://github.com/urunium/Urunium.Redux/blob/master/examples/WpfTodoMvcExample/States/TodoList.cs) of this TodoMVC app with viewmodel. In essense we are treating ViewModels to somewhat like `props` of react. But since WPF unlike react cannot contain logic in views, the ViewModels ends up being vessel for view's logics, hence somehow behaving somewhat like react's `component`ish too. XAMLs tends to be just the `render()` method without any code.
 
 <div style="text-align:center">
@@ -226,7 +222,8 @@ Other alternatives are also available:
 - https://github.com/GuillaumeSalles/redux.NET
 - https://github.com/pshomov/reducto
 
-### Why new implementation?
+**Why new implementation?**
+
 Well, it's an learning opportunity for me. This implementation is more object-oriented and idiomatic C#, while existing implementations tends to be more functional. Reducto even tries stay close to javascript redux in terms of API. It is also more opinionated in the sense that it includes built in plugins similar to [redux-logic](https://github.com/jeffbski/redux-logic), [redux-undo](https://github.com/omnidan/redux-undo) etc.
 
 ## License
@@ -249,5 +246,5 @@ And start poking the code!
 ### Building
 Build project/solution from visual studio. Or in command line enter following command `dotnet build`.
 
-## Testing
+### Testing
 Execute test in visual studio from "Test Explorer" window. Or in command line enter following command `dotnet test Urunium.Redux.Tests`
