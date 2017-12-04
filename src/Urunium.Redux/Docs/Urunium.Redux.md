@@ -1,4 +1,4 @@
-<a id="Urunium.Redux.IReducer`1"></a>
+<a id="Urunium.Redux.IReducer1"></a>
 ## interface Urunium.Redux.IReducer&lt;TState&gt;
 
 Reducer takes in a state, applies an action and returns resultant state.
@@ -31,7 +31,7 @@ class Counter : IReducer<int>
 
 **Methods**
 
-<a id="Urunium.Redux.IReducer`1.Apply(`0,System.Object)"></a>
+<a id="Urunium.Redux.IReducer1.Apply(0,System.Object)"></a>
 
  * *TState* **Apply** *(TState previousState, Object action)*<br />
 <br />
@@ -54,16 +54,16 @@ class Counter : IReducer<int>
 
 ---
 
-<a id="Urunium.Redux.IStore`1"></a>
+<a id="Urunium.Redux.IStore1"></a>
 ## interface Urunium.Redux.IStore&lt;TState&gt;
 
 Store is responsible for holding state. Dispatch action to reducer, 
 and notify about change in state to subscribers. Default implementation 
-for this interface is [Urunium.Redux.Store&lt;TState&gt;](#Urunium.Redux.Store`1) .
+for this interface is [Urunium.Redux.Store&lt;TState&gt;](#Urunium.Redux.Store1) .
 
 **Methods**
 
-<a id="Urunium.Redux.IStore`1.Dispatch``1(``0)"></a>
+<a id="Urunium.Redux.IStore1.Dispatch1(0)"></a>
 
  * *void* **Dispatch** *&lt;TAction&gt;(TAction action)*<br />
 <br />
@@ -81,7 +81,7 @@ Applying an action may transform a state into new state.
 
 **Events**
 
- <a id="Urunium.Redux.IStore`1.StateChanged"></a>
+ <a id="Urunium.Redux.IStore1.StateChanged"></a>
 
  * *EventHandler&lt;EventArgs&gt;* **StateChanged**  
   Can be subscribed to get notified about change in state.  
@@ -90,7 +90,7 @@ Applying an action may transform a state into new state.
 
 **Properties and Fields**
 
- <a id="Urunium.Redux.IStore`1.State"></a>
+ <a id="Urunium.Redux.IStore1.State"></a>
 
  * *TState* **State**  
   Application's State object which needs to be held by this store.  
@@ -102,14 +102,14 @@ Applying an action may transform a state into new state.
 
 ---
 
-<a id="Urunium.Redux.Store`1"></a>
+<a id="Urunium.Redux.Store1"></a>
 ## class Urunium.Redux.Store&lt;TState&gt;
 
-Default implementation of [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore`1) . A store is generally a singleton global
+Default implementation of [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore1) . A store is generally a singleton global
 object that holds entire state of the application. Store can be used to route actions to reducers,
-to change the current state to new desired state using [Dispatch&lt;TAction&gt;(TAction action)](#Urunium.Redux.Store`1.Dispatch``1(``0)) method, 
-the change in state can be listened through [StateChanged](#Urunium.Redux.Store`1.StateChanged) event, and the
-current state can be accessed through [State](#Urunium.Redux.Store`1.State) property. Note that only
+to change the current state to new desired state using [Dispatch&lt;TAction&gt;(TAction action)](#Urunium.Redux.Store1.Dispatch1(0)) method, 
+the change in state can be listened through [StateChanged](#Urunium.Redux.Store1.StateChanged) event, and the
+current state can be accessed through [State](#Urunium.Redux.Store1.State) property. Note that only
 way to modify state is through dispatching an action through store.
 
 **Examples**
@@ -154,7 +154,7 @@ store.Dispatch(new DecrementAction());
 
 **Constructors**
 
- <a id="Urunium.Redux.Store`1..ctor"></a>
+ <a id="Urunium.Redux.Store1..ctor"></a>
 
  * **Urunium.Redux.Store&lt;TState&gt;** *(Urunium.Redux.IReducer&lt;TState&gt; rootReducer, TState initialState)*  
    Store should take in the root reducer, and initial state.
@@ -173,7 +173,7 @@ store.Dispatch(new DecrementAction());
 
 **Methods**
 
-<a id="Urunium.Redux.Store`1.Dispatch``1(``0)"></a>
+<a id="Urunium.Redux.Store1.Dispatch1(0)"></a>
 
  * *void* **Dispatch** *&lt;TAction&gt;(TAction action)*<br />
 <br />
@@ -191,7 +191,7 @@ Applying an action may transform a state into new state.
 
 **Events**
 
- <a id="Urunium.Redux.Store`1.StateChanged"></a>
+ <a id="Urunium.Redux.Store1.StateChanged"></a>
 
  * *EventHandler&lt;EventArgs&gt;* **StateChanged**  
   Can be subscribed to get notified about change in state.  
@@ -200,7 +200,7 @@ Applying an action may transform a state into new state.
 
 **Properties and Fields**
 
- <a id="Urunium.Redux.Store`1.State"></a>
+ <a id="Urunium.Redux.Store1.State"></a>
 
  * *TState* **State**  
   Get application's State object which needs to be held by this store.  
@@ -238,19 +238,19 @@ Action to "Undo" state, as in (Undo/redo).
 
 ---
 
-<a id="Urunium.Redux.Undoable.UndoableState`1"></a>
+<a id="Urunium.Redux.Undoable.UndoableState1"></a>
 ## class Urunium.Redux.Undoable.UndoableState&lt;TState&gt;
 
-Datastructure to support undo/redo for state. Use this in conjunction with [Urunium.Redux.Undoable.UndoableReducer&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableReducer`1) to support [Urunium.Redux.Undoable.Undo](#Urunium.Redux.Undoable.Undo) / [Urunium.Redux.Undoable.Redo](#Urunium.Redux.Undoable.Redo) actions. 
-The store instance must be [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore`1) of [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState`1) where TState 
+Datastructure to support undo/redo for state. Use this in conjunction with [Urunium.Redux.Undoable.UndoableReducer&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableReducer1) to support [Urunium.Redux.Undoable.Undo](#Urunium.Redux.Undoable.Undo) / [Urunium.Redux.Undoable.Redo](#Urunium.Redux.Undoable.Redo) actions. 
+The store instance must be [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore1) of [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState1) where TState 
 is the type of application's state.
 
 **Constructors**
 
- <a id="Urunium.Redux.Undoable.UndoableState`1..ctor"></a>
+ <a id="Urunium.Redux.Undoable.UndoableState1..ctor"></a>
 
  * **Urunium.Redux.Undoable.UndoableState&lt;TState&gt;** *(TState present, System.Collections.Generic.IReadOnlyList&lt;TState&gt; past, System.Collections.Generic.IReadOnlyList&lt;TState&gt; future)*  
-   Create an instance of [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState`1) , with current state, past states and future states.
+   Create an instance of [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState1) , with current state, past states and future states.
 
 
     **Parameters:**
@@ -266,10 +266,10 @@ is the type of application's state.
 
   
 
- <a id="Urunium.Redux.Undoable.UndoableState`1..ctor"></a>
+ <a id="Urunium.Redux.Undoable.UndoableState1..ctor"></a>
 
  * **Urunium.Redux.Undoable.UndoableState&lt;TState&gt;** *(TState present)*  
-   Create an instance of [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState`1) , with just current state.
+   Create an instance of [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState1) , with just current state.
 
 
     **Parameters:**
@@ -282,19 +282,19 @@ is the type of application's state.
 
 **Properties and Fields**
 
- <a id="Urunium.Redux.Undoable.UndoableState`1.Past"></a>
+ <a id="Urunium.Redux.Undoable.UndoableState1.Past"></a>
 
  * *IReadOnlyList&lt;TState&gt;* **Past**  
   List of past states  
 
 
- <a id="Urunium.Redux.Undoable.UndoableState`1.Future"></a>
+ <a id="Urunium.Redux.Undoable.UndoableState1.Future"></a>
 
  * *IReadOnlyList&lt;TState&gt;* **Future**  
   List of future states  
 
 
- <a id="Urunium.Redux.Undoable.UndoableState`1.Present"></a>
+ <a id="Urunium.Redux.Undoable.UndoableState1.Present"></a>
 
  * *TState* **Present**  
   Current state.  
@@ -306,12 +306,12 @@ is the type of application's state.
 
 ---
 
-<a id="Urunium.Redux.Undoable.UndoableReducer`1"></a>
+<a id="Urunium.Redux.Undoable.UndoableReducer1"></a>
 ## class Urunium.Redux.Undoable.UndoableReducer&lt;TState&gt;
 
-Reducer to support undo/redo. This reducer is an enhancer for actual [Urunium.Redux.IReducer&lt;TState&gt;](#Urunium.Redux.IReducer`1) , 
+Reducer to support undo/redo. This reducer is an enhancer for actual [Urunium.Redux.IReducer&lt;TState&gt;](#Urunium.Redux.IReducer1) , 
 which handles [Urunium.Redux.Undoable.Undo](#Urunium.Redux.Undoable.Undo) / [Urunium.Redux.Undoable.Redo](#Urunium.Redux.Undoable.Redo) actions and forwards all other action to underlying
-reducer. Use this in conjunction with [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState`1) to support [Urunium.Redux.Undoable.Undo](#Urunium.Redux.Undoable.Undo) / [Urunium.Redux.Undoable.Redo](#Urunium.Redux.Undoable.Redo) actions.
+reducer. Use this in conjunction with [Urunium.Redux.Undoable.UndoableState&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableState1) to support [Urunium.Redux.Undoable.Undo](#Urunium.Redux.Undoable.Undo) / [Urunium.Redux.Undoable.Redo](#Urunium.Redux.Undoable.Redo) actions.
 
 **Examples**
 
@@ -340,10 +340,10 @@ new UndoableState<int>(0));
 
 **Constructors**
 
- <a id="Urunium.Redux.Undoable.UndoableReducer`1..ctor"></a>
+ <a id="Urunium.Redux.Undoable.UndoableReducer1..ctor"></a>
 
  * **Urunium.Redux.Undoable.UndoableReducer&lt;TState&gt;** *(Urunium.Redux.IReducer&lt;TState&gt; innerReducer, [int keep])*  
-   Create an instance of [Urunium.Redux.Undoable.UndoableReducer&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableReducer`1) .
+   Create an instance of [Urunium.Redux.Undoable.UndoableReducer&lt;TState&gt;](#Urunium.Redux.Undoable.UndoableReducer1) .
 
 
     **Parameters:**
@@ -359,7 +359,7 @@ new UndoableState<int>(0));
 
 **Methods**
 
-<a id="Urunium.Redux.Undoable.UndoableReducer`1.Apply(Urunium.Redux.Undoable.UndoableState{`0},System.Object)"></a>
+<a id="Urunium.Redux.Undoable.UndoableReducer1.Apply(Urunium.Redux.Undoable.UndoableState{0},System.Object)"></a>
 
  * *UndoableState&lt;TState&gt;* **Apply** *(Urunium.Redux.Undoable.UndoableState&lt;TState&gt; previousState, Object action)*<br />
 <br />
@@ -371,7 +371,7 @@ new UndoableState<int>(0));
     **Parameters:**
   
      * *UndoableState&lt;TState&gt;* **previousState**  
-       Current state stored in [Urunium.Redux.Store&lt;TState&gt;](#Urunium.Redux.Store`1) object.
+       Current state stored in [Urunium.Redux.Store&lt;TState&gt;](#Urunium.Redux.Store1) object.
 
      * *Object* **action**  
        Action to be applied to state.
@@ -382,10 +382,10 @@ new UndoableState<int>(0));
 
 ---
 
-<a id="Urunium.Redux.Typed.IApply`2"></a>
+<a id="Urunium.Redux.Typed.IApply2"></a>
 ## interface Urunium.Redux.Typed.IApply&lt;TState, TAction&gt;
 
-Helper interface to be used with [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer`1) . Note that [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer`1) does work without implementing [Urunium.Redux.Typed.IApply&lt;TState, TAction&gt;](#Urunium.Redux.Typed.IApply`2) interface, but implementing this interface
+Helper interface to be used with [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer1) . Note that [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer1) does work without implementing [Urunium.Redux.Typed.IApply&lt;TState, TAction&gt;](#Urunium.Redux.Typed.IApply2) interface, but implementing this interface
 helps in making implementation more testable, and in visual studio it also helps in generating template methods.
 
 **Examples**
@@ -409,7 +409,7 @@ public class Counter : Typed.TypedReducer<int>, IApply<int, Increment>, IApply<i
 
 **Methods**
 
-<a id="Urunium.Redux.Typed.IApply`2.Apply(`0,`1)"></a>
+<a id="Urunium.Redux.Typed.IApply2.Apply(0,1)"></a>
 
  * *TState* **Apply** *(TState previousState, TAction action)*<br />
 <br />
@@ -432,10 +432,10 @@ public class Counter : Typed.TypedReducer<int>, IApply<int, Increment>, IApply<i
 
 ---
 
-<a id="Urunium.Redux.Typed.TypedReducer`1"></a>
+<a id="Urunium.Redux.Typed.TypedReducer1"></a>
 ## class Urunium.Redux.Typed.TypedReducer&lt;TState&gt;
 
-A [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer`1) is essentially an [Urunium.Redux.IReducer&lt;TState&gt;](#Urunium.Redux.IReducer`1) whose Apply method forwards call to other Apply methods with correct signature.
+A [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer1) is essentially an [Urunium.Redux.IReducer&lt;TState&gt;](#Urunium.Redux.IReducer1) whose Apply method forwards call to other Apply methods with correct signature.
 The apply methods are strongly typed, hence provids ability to divide reducer functions by Action type.
 
 **Examples**
@@ -460,20 +460,20 @@ public class Counter : Typed.TypedReducer<int>
 
 **Constructors**
 
- <a id="Urunium.Redux.Typed.TypedReducer`1..ctor"></a>
+ <a id="Urunium.Redux.Typed.TypedReducer1..ctor"></a>
 
  * **Urunium.Redux.Typed.TypedReducer&lt;TState&gt;** *()*  
-   Instantiate new [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer`1) 
+   Instantiate new [Urunium.Redux.Typed.TypedReducer&lt;TState&gt;](#Urunium.Redux.Typed.TypedReducer1) 
   
 
 
 **Methods**
 
-<a id="Urunium.Redux.Typed.TypedReducer`1.Apply(`0,System.Object)"></a>
+<a id="Urunium.Redux.Typed.TypedReducer1.Apply(0,System.Object)"></a>
 
  * *TState* **Apply** *(TState previousState, Object action)*<br />
 <br />
-   Base Apply method from [Urunium.Redux.IReducer&lt;TState&gt;](#Urunium.Redux.IReducer`1) 
+   Base Apply method from [Urunium.Redux.IReducer&lt;TState&gt;](#Urunium.Redux.IReducer1) 
 
 
     **Parameters:**
@@ -493,7 +493,7 @@ public class Counter : Typed.TypedReducer<int>
 <a id="Urunium.Redux.Logic.AnyAction"></a>
 ## class Urunium.Redux.Logic.AnyAction
 
-Utility class for ability to handle any type of action. To be used in conjunction with [Urunium.Redux.Logic.LogicBase&lt;TState, TAction&gt;](#Urunium.Redux.Logic.LogicBase`2) class. To get the instance of action that was
+Utility class for ability to handle any type of action. To be used in conjunction with [Urunium.Redux.Logic.LogicBase&lt;TState, TAction&gt;](#Urunium.Redux.Logic.LogicBase2) class. To get the instance of action that was
 actually dispatched use [ActualAction](#Urunium.Redux.Logic.AnyAction.ActualAction) property.
 
 **Examples**
@@ -565,7 +565,7 @@ Make logic cancelable.
 
 **Methods**
 
-<a id="Urunium.Redux.Logic.ICancelable.Cancel``1(``0)"></a>
+<a id="Urunium.Redux.Logic.ICancelable.Cancel1(0)"></a>
 
  * *void* **Cancel** *&lt;TCancel&gt;(TCancel cancelAction)*<br />
 <br />
@@ -593,7 +593,7 @@ Make logic cancelable.
 
 ---
 
-<a id="Urunium.Redux.Logic.ILogic`2"></a>
+<a id="Urunium.Redux.Logic.ILogic2"></a>
 ## interface Urunium.Redux.Logic.ILogic&lt;TState, TAction&gt;
 
 Interface representing a `Logic`. A class must implement this interface, if it wants to get registered in store as a logic. 
@@ -601,7 +601,7 @@ Interface representing a `Logic`. A class must implement this interface, if it w
 
 **Methods**
 
-<a id="Urunium.Redux.Logic.ILogic`2.PreProcess(Urunium.Redux.IStore{`0},`1)"></a>
+<a id="Urunium.Redux.Logic.ILogic2.PreProcess(Urunium.Redux.IStore{0},1)"></a>
 
  * *System.Threading.Tasks.Task&lt;Urunium.Redux.Logic.PreProcessResult&gt;* **PreProcess** *(Urunium.Redux.IStore&lt;TState&gt; store, TAction action)*<br />
 <br />
@@ -610,7 +610,7 @@ In case multiple logic handles same action type, then preprocess of each logic i
 before dispatching action.
 
     **Returns:** An instance of [Urunium.Redux.Logic.PreProcessResult](#Urunium.Redux.Logic.PreProcessResult) , indicating whether or not next logic in chain should be executed. 
-Note that, setting [PreProcessResult.ContinueToNextStep](#Urunium.Redux.Logic.PreProcessResult.ContinueToNextStep) to false will stop logic chaing right there. Even [Process(System.Func&lt;TState&gt; getState, TAction action, Urunium.Redux.Logic.IMultiDispatcher dispatcher)](#Urunium.Redux.Logic.ILogic`2.Process(System.Func{`0},`1,Urunium.Redux.Logic.IMultiDispatcher)) is also not executed
+Note that, setting [PreProcessResult.ContinueToNextStep](#Urunium.Redux.Logic.PreProcessResult.ContinueToNextStep) to false will stop logic chaing right there. Even [Process(System.Func&lt;TState&gt; getState, TAction action, Urunium.Redux.Logic.IMultiDispatcher dispatcher)](#Urunium.Redux.Logic.ILogic2.Process(System.Func{0},1,Urunium.Redux.Logic.IMultiDispatcher)) is also not executed
 
 
     **Parameters:**
@@ -622,11 +622,11 @@ Note that, setting [PreProcessResult.ContinueToNextStep](#Urunium.Redux.Logic.Pr
        Action that needs to be preprocessed.
 
 
-<a id="Urunium.Redux.Logic.ILogic`2.Process(System.Func{`0},`1,Urunium.Redux.Logic.IMultiDispatcher)"></a>
+<a id="Urunium.Redux.Logic.ILogic2.Process(System.Func{0},1,Urunium.Redux.Logic.IMultiDispatcher)"></a>
 
  * *System.Threading.Tasks.Task* **Process** *(System.Func&lt;TState&gt; getState, TAction action, Urunium.Redux.Logic.IMultiDispatcher dispatcher)*<br />
 <br />
-   Processing of dispatched action. This gets executed after [PreProcess(Urunium.Redux.IStore&lt;TState&gt; store, TAction action)](#Urunium.Redux.Logic.ILogic`2.PreProcess(Urunium.Redux.IStore{`0},`1)) and, [Dispatch&lt;TAction&gt;(TAction action)](#Urunium.Redux.IStore`1.Dispatch``1(``0)) . Typically pre-processing is to handle scenarios before
+   Processing of dispatched action. This gets executed after [PreProcess(Urunium.Redux.IStore&lt;TState&gt; store, TAction action)](#Urunium.Redux.Logic.ILogic2.PreProcess(Urunium.Redux.IStore{0},1)) and, [Dispatch&lt;TAction&gt;(TAction action)](#Urunium.Redux.IStore1.Dispatch1(0)) . Typically pre-processing is to handle scenarios before
 dispatching action, and process is for handling after dispatching.
 
     **Returns:** async Task (instead of async void.)
@@ -647,14 +647,14 @@ dispatching action, and process is for handling after dispatching.
 
 **Properties and Fields**
 
- <a id="Urunium.Redux.Logic.ILogic`2.IsLongRunning"></a>
+ <a id="Urunium.Redux.Logic.ILogic2.IsLongRunning"></a>
 
  * *bool* **IsLongRunning**  
   Indicate that this is a long running process, so other logics must continue while this is running in background 
 (i.e. don't wait for it to complete). Long running processes are given separate thread, through use of: [System.Threading.Tasks.TaskCreationOptions.LongRunning](#System.Threading.Tasks.TaskCreationOptions.LongRunning) . Implementor doesn't need to concern with running it in separate thread. 
 Note:
-- [PreProcess(Urunium.Redux.IStore&lt;TState&gt; store, TAction action)](#Urunium.Redux.Logic.ILogic`2.PreProcess(Urunium.Redux.IStore{`0},`1)) cannot be long running.
-- Only [Process(System.Func&lt;TState&gt; getState, TAction action, Urunium.Redux.Logic.IMultiDispatcher dispatcher)](#Urunium.Redux.Logic.ILogic`2.Process(System.Func{`0},`1,Urunium.Redux.Logic.IMultiDispatcher)) can be long running.  
+- [PreProcess(Urunium.Redux.IStore&lt;TState&gt; store, TAction action)](#Urunium.Redux.Logic.ILogic2.PreProcess(Urunium.Redux.IStore{0},1)) cannot be long running.
+- Only [Process(System.Func&lt;TState&gt; getState, TAction action, Urunium.Redux.Logic.IMultiDispatcher dispatcher)](#Urunium.Redux.Logic.ILogic2.Process(System.Func{0},1,Urunium.Redux.Logic.IMultiDispatcher)) can be long running.  
 
 
 
@@ -663,14 +663,14 @@ Note:
 
 ---
 
-<a id="Urunium.Redux.Logic.ILogicConfiguration`1"></a>
+<a id="Urunium.Redux.Logic.ILogicConfiguration1"></a>
 ## interface Urunium.Redux.Logic.ILogicConfiguration&lt;TState&gt;
 
 Configuration helper for logic extension, to add logic to store.
 
 **Methods**
 
-<a id="Urunium.Redux.Logic.ILogicConfiguration`1.AddLogics``1(Urunium.Redux.Logic.ILogic{`0,``0}[])"></a>
+<a id="Urunium.Redux.Logic.ILogicConfiguration1.AddLogics1(Urunium.Redux.Logic.ILogic{0,0}[])"></a>
 
  * *void* **AddLogics** *&lt;TAction&gt;(Urunium.Redux.Logic.ILogic&lt;TState, TAction&gt;[] logics)*<br />
 <br />
@@ -696,7 +696,7 @@ changed silently and one state changed event is fired when scope gets disposed.
 
 **Methods**
 
-<a id="Urunium.Redux.Logic.IMultiDispatcher.Dispatch``1(``0)"></a>
+<a id="Urunium.Redux.Logic.IMultiDispatcher.Dispatch1(0)"></a>
 
  * *void* **Dispatch** *&lt;TAction&gt;(TAction action)*<br />
 <br />
@@ -710,7 +710,7 @@ silently, and single StateChange event is fired at the end, when scope gets disp
        Action object to dispatch
 
 
-<a id="Urunium.Redux.Logic.IMultiDispatcher.DispatchImmediate``1(``0)"></a>
+<a id="Urunium.Redux.Logic.IMultiDispatcher.DispatchImmediate1(0)"></a>
 
  * *void* **DispatchImmediate** *&lt;TAction&gt;(TAction action)*<br />
 <br />
@@ -739,16 +739,16 @@ Warning:
 
 ---
 
-<a id="Urunium.Redux.Logic.LogicBase`2"></a>
+<a id="Urunium.Redux.Logic.LogicBase2"></a>
 ## class Urunium.Redux.Logic.LogicBase&lt;TState, TAction&gt;
 
-Abstract base class for logics. Implementing vanilla [Urunium.Redux.Logic.ILogic&lt;TState, TAction&gt;](#Urunium.Redux.Logic.ILogic`2) works but
+Abstract base class for logics. Implementing vanilla [Urunium.Redux.Logic.ILogic&lt;TState, TAction&gt;](#Urunium.Redux.Logic.ILogic2) works but
 leaves more to be desired. LogicBase splits Preprocess into Transformation and Validation.
 Gives ability to replace any of Preprocess/Processing steps with custom implementation.
 
 **Methods**
 
-<a id="Urunium.Redux.Logic.LogicBase`2.Cancel``1(``0)"></a>
+<a id="Urunium.Redux.Logic.LogicBase2.Cancel1(0)"></a>
 
  * *void* **Cancel** *&lt;TCancel&gt;(TCancel cancelAction)*<br />
 <br />
@@ -764,26 +764,26 @@ Gives ability to replace any of Preprocess/Processing steps with custom implemen
 
 **Properties and Fields**
 
- <a id="Urunium.Redux.Logic.LogicBase`2.CancelType"></a>
+ <a id="Urunium.Redux.Logic.LogicBase2.CancelType"></a>
 
  * *Type* **CancelType**  
   Type of action that when dispatched will cancel this process  
 
 
- <a id="Urunium.Redux.Logic.LogicBase`2.Priority"></a>
+ <a id="Urunium.Redux.Logic.LogicBase2.Priority"></a>
 
  * *uint* **Priority**  
   Priority of logic. Priority is calculated in descending order. i.e. Greater the number higher the priority  
 
 
- <a id="Urunium.Redux.Logic.LogicBase`2.IsLongRunning"></a>
+ <a id="Urunium.Redux.Logic.LogicBase2.IsLongRunning"></a>
 
  * *bool* **IsLongRunning**  
   Indicate that this is a long running process, so other logics must continue while this is running in background 
 (i.e. don't wait for it to complete). Long running processes are given separate thread, through use of: [System.Threading.Tasks.TaskCreationOptions.LongRunning](#System.Threading.Tasks.TaskCreationOptions.LongRunning) . Implementor doesn't need to concern with running it in separate thread. 
 Note:
-- [PreProcess(Urunium.Redux.IStore&lt;TState&gt; store, TAction action)](#Urunium.Redux.Logic.ILogic`2.PreProcess(Urunium.Redux.IStore{`0},`1)) cannot be long running.
-- Only [Process(System.Func&lt;TState&gt; getState, TAction action, Urunium.Redux.Logic.IMultiDispatcher dispatcher)](#Urunium.Redux.Logic.ILogic`2.Process(System.Func{`0},`1,Urunium.Redux.Logic.IMultiDispatcher)) can be long running.  
+- [PreProcess(Urunium.Redux.IStore&lt;TState&gt; store, TAction action)](#Urunium.Redux.Logic.ILogic2.PreProcess(Urunium.Redux.IStore{0},1)) cannot be long running.
+- Only [Process(System.Func&lt;TState&gt; getState, TAction action, Urunium.Redux.Logic.IMultiDispatcher dispatcher)](#Urunium.Redux.Logic.ILogic2.Process(System.Func{0},1,Urunium.Redux.Logic.IMultiDispatcher)) can be long running.  
 
 
 
@@ -799,7 +799,7 @@ Extension class to configure Logic in store.
 
 **Static Methods**
 
-<a id="Urunium.Redux.Logic.LogicStoreExtension.ConfigureLogic``1(Urunium.Redux.IStore{``0},System.Action{Urunium.Redux.Logic.ILogicConfiguration{``0}})"></a>
+<a id="Urunium.Redux.Logic.LogicStoreExtension.ConfigureLogic1(Urunium.Redux.IStore{0},System.Action{Urunium.Redux.Logic.ILogicConfiguration{0}})"></a>
 
  * *IStore&lt;TState&gt;* **ConfigureLogic** *&lt;TState&gt;(Urunium.Redux.IStore&lt;TState&gt; originalStore, System.Action&lt;Urunium.Redux.Logic.ILogicConfiguration&lt;TState&gt;&gt; configurator)*<br />
 <br />
@@ -814,7 +814,7 @@ Extension class to configure Logic in store.
        Original store that will be enhanced with ability to handle business logic.
 
      * *Action&lt;ILogicConfiguration&lt;TState&gt;&gt;* **configurator**  
-       Instance of [Urunium.Redux.Logic.ILogicConfiguration&lt;TState&gt;](#Urunium.Redux.Logic.ILogicConfiguration`1) .
+       Instance of [Urunium.Redux.Logic.ILogicConfiguration&lt;TState&gt;](#Urunium.Redux.Logic.ILogicConfiguration1) .
 
 
 
@@ -845,7 +845,7 @@ using(var dispatcher = MultiDispatcher.Create(store))
 
 **Static Methods**
 
-<a id="Urunium.Redux.Logic.MultiDispatcher.Create``1(Urunium.Redux.IStore{``0})"></a>
+<a id="Urunium.Redux.Logic.MultiDispatcher.Create1(Urunium.Redux.IStore{0})"></a>
 
  * *Urunium.Redux.Logic.IMultiDispatcher* **Create** *&lt;TState&gt;(Urunium.Redux.IStore&lt;TState&gt; store)*<br />
 <br />
@@ -1088,11 +1088,11 @@ Is set to null if IsValid is true.
 
 ---
 
-<a id="Urunium.Redux.Enhance.StoreEnhancer`1"></a>
+<a id="Urunium.Redux.Enhance.StoreEnhancer1"></a>
 ## class Urunium.Redux.Enhance.StoreEnhancer&lt;TState&gt;
 
 Gives ability to intercept and enhance store functionalities. This class works in Russian doll model,
-each enhancer wrapping an inner enhancer, until the inner most object is instance of [Urunium.Redux.Store&lt;TState&gt;](#Urunium.Redux.Store`1) itself.LogicEnhanceris an example of how enhancer can be used.
+each enhancer wrapping an inner enhancer, until the inner most object is instance of [Urunium.Redux.Store&lt;TState&gt;](#Urunium.Redux.Store1) itself.LogicEnhanceris an example of how enhancer can be used.
 
 **Examples**
 
@@ -1144,23 +1144,23 @@ Assert.AreEqual(1, store.State.Todos.Count);
 
 **Constructors**
 
- <a id="Urunium.Redux.Enhance.StoreEnhancer`1..ctor"></a>
+ <a id="Urunium.Redux.Enhance.StoreEnhancer1..ctor"></a>
 
  * **Urunium.Redux.Enhance.StoreEnhancer&lt;TState&gt;** *(Urunium.Redux.IStore&lt;TState&gt; store)*  
-   Constructor of [Urunium.Redux.Enhance.StoreEnhancer&lt;TState&gt;](#Urunium.Redux.Enhance.StoreEnhancer`1) that enhances store object.
+   Constructor of [Urunium.Redux.Enhance.StoreEnhancer&lt;TState&gt;](#Urunium.Redux.Enhance.StoreEnhancer1) that enhances store object.
 
 
     **Parameters:**
   
      * *IStore&lt;TState&gt;* **store**  
-        [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore`1) instance that needs to be enhanced.
+        [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore1) instance that needs to be enhanced.
 
   
 
 
 **Methods**
 
-<a id="Urunium.Redux.Enhance.StoreEnhancer`1.Dispatch``1(``0)"></a>
+<a id="Urunium.Redux.Enhance.StoreEnhancer1.Dispatch1(0)"></a>
 
  * *void* **Dispatch** *&lt;TAction&gt;(TAction action)*<br />
 <br />
@@ -1173,7 +1173,7 @@ Assert.AreEqual(1, store.State.Todos.Count);
        
 
 
-<a id="Urunium.Redux.Enhance.StoreEnhancer`1.Find``1"></a>
+<a id="Urunium.Redux.Enhance.StoreEnhancer1.Find1"></a>
 
  * *TEnhancer* **Find** *&lt;TEnhancer&gt;()*<br />
 <br />
@@ -1188,7 +1188,7 @@ outer most enhacer to inner-most store.
 
 **Events**
 
- <a id="Urunium.Redux.Enhance.StoreEnhancer`1.StateChanged"></a>
+ <a id="Urunium.Redux.Enhance.StoreEnhancer1.StateChanged"></a>
 
  * *EventHandler&lt;EventArgs&gt;* **StateChanged**  
   Get notified when state changes, with enhancements.  
@@ -1197,7 +1197,7 @@ outer most enhacer to inner-most store.
 
 **Properties and Fields**
 
- <a id="Urunium.Redux.Enhance.StoreEnhancer`1.State"></a>
+ <a id="Urunium.Redux.Enhance.StoreEnhancer1.State"></a>
 
  * *TState* **State**  
   Enhanced State  
@@ -1212,11 +1212,11 @@ outer most enhacer to inner-most store.
 <a id="Urunium.Redux.Enhance.StoreExtension"></a>
 ## class Urunium.Redux.Enhance.StoreExtension
 
-Extension methods for [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore`1) to enhance store instances.
+Extension methods for [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore1) to enhance store instances.
 
 **Static Methods**
 
-<a id="Urunium.Redux.Enhance.StoreExtension.EnhanceWith``1(Urunium.Redux.IStore{``0},System.Type[])"></a>
+<a id="Urunium.Redux.Enhance.StoreExtension.EnhanceWith1(Urunium.Redux.IStore{0},System.Type[])"></a>
 
  * *IStore&lt;TState&gt;* **EnhanceWith** *&lt;TState&gt;(Urunium.Redux.IStore&lt;TState&gt; originalStore, Type[] enhancerTypes)*<br />
 <br />
@@ -1234,7 +1234,7 @@ Extension methods for [Urunium.Redux.IStore&lt;TState&gt;](#Urunium.Redux.IStore
        All store enhancers must inherit from
 
 
-<a id="Urunium.Redux.Enhance.StoreExtension.FindEnhancer``2(Urunium.Redux.IStore{``1})"></a>
+<a id="Urunium.Redux.Enhance.StoreExtension.FindEnhancer2(Urunium.Redux.IStore{1})"></a>
 
  * *TEnhancer* **FindEnhancer** *&lt;TEnhancer, TState&gt;(Urunium.Redux.IStore&lt;TState&gt; originalStore)*<br />
 <br />
@@ -1256,7 +1256,7 @@ outer most enhacer to inner-most IStore.
 
 ---
 
-<a id="Urunium.Redux.Compose.ISubTreeReducer`2"></a>
+<a id="Urunium.Redux.Compose.ISubTreeReducer2"></a>
 ## interface Urunium.Redux.Compose.ISubTreeReducer&lt;TState, TPart&gt;
 
 Reducer that works on a part (sub-tree) of application state.
@@ -1265,7 +1265,7 @@ smaller part of the state tree.
 
 **Properties and Fields**
 
- <a id="Urunium.Redux.Compose.ISubTreeReducer`2.PropertySelector"></a>
+ <a id="Urunium.Redux.Compose.ISubTreeReducer2.PropertySelector"></a>
 
  * *Expression&lt;Func&lt;TState, TPart&gt;&gt;* **PropertySelector**  
   Expression representing the property of TState class, that this subtree reducer deals with.  
@@ -1277,7 +1277,7 @@ smaller part of the state tree.
 
 ---
 
-<a id="Urunium.Redux.Compose.ReducerComposer`1"></a>
+<a id="Urunium.Redux.Compose.ReducerComposer1"></a>
 ## class Urunium.Redux.Compose.ReducerComposer&lt;TState&gt;
 
 Root reducer that will compose various reducers.
@@ -1288,7 +1288,7 @@ Root reducer that will compose various reducers.
 
 **Methods**
 
-<a id="Urunium.Redux.Compose.ReducerComposer`1.AddStateReducer(Urunium.Redux.IReducer{`0})"></a>
+<a id="Urunium.Redux.Compose.ReducerComposer1.AddStateReducer(Urunium.Redux.IReducer{0})"></a>
 
  * *Urunium.Redux.Compose.ReducerComposer&lt;TState&gt;* **AddStateReducer** *(Urunium.Redux.IReducer&lt;TState&gt; stateReducer)*<br />
 <br />
@@ -1303,7 +1303,7 @@ Root reducer that will compose various reducers.
        
 
 
-<a id="Urunium.Redux.Compose.ReducerComposer`1.AddSubTreeReducer``1(Urunium.Redux.Compose.ISubTreeReducer{`0,``0})"></a>
+<a id="Urunium.Redux.Compose.ReducerComposer1.AddSubTreeReducer1(Urunium.Redux.Compose.ISubTreeReducer{0,0})"></a>
 
  * *Urunium.Redux.Compose.ReducerComposer&lt;TState&gt;* **AddSubTreeReducer** *&lt;TPart&gt;(Urunium.Redux.Compose.ISubTreeReducer&lt;TState, TPart&gt; subTreeReducer)*<br />
 <br />
@@ -1318,7 +1318,7 @@ Root reducer that will compose various reducers.
        Instance of ISubTreeReducer
 
 
-<a id="Urunium.Redux.Compose.ReducerComposer`1.Apply(`0,System.Object)"></a>
+<a id="Urunium.Redux.Compose.ReducerComposer1.Apply(0,System.Object)"></a>
 
  * *TState* **Apply** *(TState previousState, Object action)*<br />
 <br />
@@ -1341,14 +1341,14 @@ Root reducer that will compose various reducers.
 
 ---
 
-<a id="Urunium.Redux.Compose.SubTreeToFullTreeAdapter`2"></a>
+<a id="Urunium.Redux.Compose.SubTreeToFullTreeAdapter2"></a>
 ## class Urunium.Redux.Compose.SubTreeToFullTreeAdapter&lt;TState, TPart&gt;
 
 Helps adapt a subtree reducer into full state tree reducer.
 
 **Constructors**
 
- <a id="Urunium.Redux.Compose.SubTreeToFullTreeAdapter`2..ctor"></a>
+ <a id="Urunium.Redux.Compose.SubTreeToFullTreeAdapter2..ctor"></a>
 
  * **Urunium.Redux.Compose.SubTreeToFullTreeAdapter&lt;TState, TPart&gt;** *(Urunium.Redux.Compose.ISubTreeReducer&lt;TState, TPart&gt; subTreeReducer)*  
    Constructor for SubTreeToFullTreeAdapter
@@ -1364,7 +1364,7 @@ Helps adapt a subtree reducer into full state tree reducer.
 
 **Methods**
 
-<a id="Urunium.Redux.Compose.SubTreeToFullTreeAdapter`2.Apply(`0,System.Object)"></a>
+<a id="Urunium.Redux.Compose.SubTreeToFullTreeAdapter2.Apply(0,System.Object)"></a>
 
  * *TState* **Apply** *(TState previousState, Object action)*<br />
 <br />
