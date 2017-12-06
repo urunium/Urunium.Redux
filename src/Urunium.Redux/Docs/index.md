@@ -1,3 +1,6 @@
+title: Introducing Urunium.Redux an implimentation of Redux in c#
+description: Urunium.Redux is an implementation of redux in c#. It is a netstandard-1.0 library
+
 # Introducing Urunium.Redux an implimentation of Redux in `c#`
 **[Urunium.Redux](https://github.com/urunium/Urunium.Redux)** is an implementation of [redux](https://github.com/reactjs/redux) in c#. 
 It is a [netstandard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)-[1.0](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard1.0.md) library, 
