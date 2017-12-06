@@ -1,4 +1,5 @@
 site_name: 'Urunium.Redux API'
+site_url: http://uruniumredux.readthedocs.io/en/latest/
 docs_dir: './src/Urunium.Redux/Docs/'
 google_analytics:  ['UA-55719395-2', 'uruniumredux.readthedocs.io']
 pages:
